@@ -1,0 +1,100 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%          Written by Nicolas Bigaouette               %%
+%%                    Winter 2008                       %%
+%%              nbigaouette@gmail.com                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\TITLE}{Change to Document's Title}
+\newcommand{\AUTHOR}{Change to Document's Author}
+
+\documentclass[12pt,letterpaper]{article}
+% \documentclass[12pt,letterpaper,draft]{article}
+\title{\TITLE}
+\date{}
+\author{\AUTHOR}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Useful macros
+\input{macros.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Optional packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}    % Subequations
+\usepackage{bm}         % bold Greek letters
+\usepackage{subfigure}  % Multiple figures
+\usepackage{ltugcomn}   % 1/2 symbol
+\usepackage{multirow}   % Multiple rows
+% \usepackage{dcolumn}    % Align table columns on decimal point
+% \biboptions{compress} % \usepackage[compress]{natbib}
+\usepackage{url}        % Inclure url in text
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This template required packages
+% \usepackage{ifthen}     % For optional compilation
+\usepackage{ifpdf}      % For dvi/pdf optional compilation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\ifpdf
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % PDF compilation with "pdflatex"
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \def\pdfshellescape{1}
+    \pdfcompresslevel=9
+    \usepackage[pdftex]{graphicx}
+    %%%
+    % PDF options
+    % See http://barrault.free.fr/ressources/rapports/pdflatex/
+    \usepackage[pdftex,
+        bookmarks = true,           % Enable bookmarks
+        bookmarksnumbered = true,   % Enable numbered bookmarks
+        bookmarksopen = false,      % Bookmarks are hidden when opening document
+        unicode = true,             % Unicode character support in bookmarks
+        %pdfpagemode = UseOutlines, % Show outline when opening document
+        pdfpagemode = UseNone,      % Hide outline when opening document
+        pdfstartview = FitH,        % Fit page width when opening document
+        colorlinks,                 % Hyperlinks are colored
+        urlcolor=blue,              % URL set to blue
+        citecolor=black,
+        linkcolor=black,
+        pdfauthor={\AUTHOR},        % Macro expanding to author name (see top)
+        pdftitle={\TITLE},          % Macro expanding to title (see top)
+        plainpages = false,pdfpagelabels % See https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Problems_with_Links_and_Pages
+    ]{hyperref}
+    \usepackage[all]{hypcap}        % Make sure the links point to top of figures, not captions.
+                                    % http://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing#Issues_with_links_to_tables_and_figures_handled_by_hyperref
+\else
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % DVI compilation with "latex"
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \usepackage[dvips]{graphicx}
+    \newcommand{\url}[1]{{\color{blue}#1}}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+
+\maketitle
+\tableofcontents
+
+\newpage
+
+\input{chapter1.tex}
+% \input{chapter2.tex}
+
+% \hypertarget{section:references}{}
+% \nocite{*}
+% \bibliography{references}
+% % \bibliographystyle{model1-num-names}
+% \bibliographystyle{plain}
+
+
+
+\end{document}
