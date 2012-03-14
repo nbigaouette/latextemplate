@@ -113,12 +113,16 @@
 \input{chapter1.tex}
 \input{chapter2.tex}
 
-% \hypertarget{section:references}{}
-% \nocite{*}
-% \bibliography{references}
-% % \bibliographystyle{model1-num-names}
-% \bibliographystyle{plain}
-
+% Bibliography
+\newpage
+% Instead of using a \section{} for the bibliography which
+% would add a ``chapter number'' before it, use the following
+% to add a ``References'' section, correctly labeled and
+% present in the table-of-content.
+\addcontentsline{toc}{section}{References}\label{references}
+% \nocite{*}                % Uncomment to cite EVERYTHING included in bibliography file
+\bibliographystyle{plain}   % Bibliography style to use.
+\bibliography{references}   % Bibliography (BibTeX) file (must end with .bib)
 
 
 \end{document}

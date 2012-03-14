@@ -30,9 +30,15 @@ Code                        & Result            & Code                        & 
 F\pa{x} & = \int_{0}^{\infty} \frac{\sqrt{a + x}}{\pa{b + x}^5}~\textrm{d}x
 \label{eqn:example}
 \end{align}
+
+\subsection{Citing}
 When a label is attached to an equation, it can be cited. By adding ``\textbackslash label\{eqn:example\}'' in
 the function's \textit{align} environment, it becomes possible to cite equation \eqref{eqn:example} with
 ``\textbackslash eqref\{eqn:example\}''.
 
+To refence a book, article or other, use \BibTeX. Then cite the document
+using its \BibTeX key with ``\textbackslash cite\{BibTeX key\}''. For example,
+``\textbackslash cite\{Taflove2005\}'' will give the clickable link \cite{Taflove2005}
+which points to the references section.
 
 
